@@ -10,7 +10,7 @@ const App = () => {
 
   // ---------------- FETCH ----------------
   function fetchNotes(){
-    axios.get("http://localhost:3000/notes")
+    axios.get("https://backend-j23l.onrender.com/notes")
     .then((res) => {
       setNotes(res.data.notes);
     });
@@ -22,7 +22,7 @@ const App = () => {
 
     if(editId){
       // UPDATE
-      axios.patch("http://localhost:3000/notes/"+editId,{
+      axios.patch("https://backend-j23l.onrender.com/notes/"+editId,{
         title,
         description
       })
@@ -34,7 +34,7 @@ const App = () => {
       });
     } else {
       // CREATE
-      axios.post("http://localhost:3000/notes",{
+      axios.post("https://backend-j23l.onrender.com/notes",{
         title,
         description
       })
@@ -48,7 +48,7 @@ const App = () => {
 
   // ---------------- DELETE ----------------
   function handleDeleteNote(noteId){
-    axios.delete("http://localhost:3000/notes/"+noteId)
+    axios.delete("https://backend-j23l.onrender.com/notes/"+noteId)
     .then(()=>{
       fetchNotes();
     });
